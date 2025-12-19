@@ -1,25 +1,34 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  serverExternalPackages: [
-    "pino",
-    "pino-pretty",
-    "thread-stream",
-    "@walletconnect/logger",
-  ],
-  turbopack: {},
-  webpack: (config) => {
-    config.resolve.fallback = { fs: false, net: false, tls: false };
-    config.externals.push("pino-pretty", "encoding");
+  webpack: (config, { isServer }) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "thread-stream": false,
+      pino: false,
+      "pino-pretty": false,
+      "@react-native-async-storage/async-storage": false,
+    };
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+        path: false,
+        os: false,
+        worker_threads: false,
+      };
+    }
     return config;
   },
   async headers() {
     return [
       {
-        source: "/(.*)",
+        source: "/:path*",
         headers: [
-          { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
-          { key: "Cross-Origin-Embedder-Policy", value: "require-corp" },
+          { key: "Cross-Origin-Opener-Policy", value: "same-origin-allow-popups" },
+          { key: "Cross-Origin-Embedder-Policy", value: "credentialless" },
         ],
       },
     ];

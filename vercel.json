@@ -1,7 +1,3 @@
 {
-  "build": {
-    "env": {
-      "NEXT_PRIVATE_USE_WEBPACK": "1"
-    }
-  }
+  "buildCommand": "NEXT_PRIVATE_LOCAL_WEBPACK=1 next build"
 }
