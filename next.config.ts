@@ -1,6 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: [
+    "pino",
+    "pino-pretty",
+    "thread-stream",
+    "@walletconnect/logger",
+  ],
   turbopack: {},
   webpack: (config) => {
     config.resolve.fallback = { fs: false, net: false, tls: false };
