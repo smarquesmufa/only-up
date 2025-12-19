@@ -758,7 +758,7 @@ export default function RoundDetailPage({ params }: { params: Promise<{ roundId:
                             disabled={settlementStep !== 0 || !settlementPriceInput}
                             className="px-4 py-2 bg-amber-600 hover:bg-amber-500 disabled:bg-slate-700 disabled:cursor-not-allowed text-white text-xs font-bold rounded-lg transition-all"
                           >
-                            {settlementStep === 1 ? "..." : "Settle"}
+                            {settlementStep === 1 ? (<><svg className="animate-spin h-3 w-3 mr-1 inline" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Settling...</>) : "Settle"}
                           </button>
                         </div>
                       ) : (
@@ -778,7 +778,7 @@ export default function RoundDetailPage({ params }: { params: Promise<{ roundId:
                           disabled={!roundSettled || settlementStep !== 0}
                           className="w-full px-4 py-2 bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-700 disabled:cursor-not-allowed text-white text-xs font-bold rounded-lg transition-all"
                         >
-                          {settlementStep === 2 ? "Revealing..." : "Reveal All"}
+                          {settlementStep === 2 ? (<><svg className="animate-spin h-3 w-3 mr-1 inline" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Revealing...</>) : "Reveal All"}
                         </button>
                       ) : (
                         <div className="text-xs text-slate-400">All predictions revealed ({revealedHandles.length || participants} handles)</div>
@@ -797,7 +797,7 @@ export default function RoundDetailPage({ params }: { params: Promise<{ roundId:
                           disabled={!roundRevealed || settlementStep !== 0 || !fheReady}
                           className="w-full px-4 py-2 bg-pink-600 hover:bg-pink-500 disabled:bg-slate-700 disabled:cursor-not-allowed text-white text-xs font-bold rounded-lg transition-all"
                         >
-                          {settlementStep === 3 ? "Verifying..." : "Verify All"}
+                          {settlementStep === 3 ? (<><svg className="animate-spin h-3 w-3 mr-1 inline" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Verifying...</>) : "Verify All"}
                         </button>
                       ) : (
                         <div className="text-xs text-slate-400">Winners verified: <span className="text-emerald-400 font-bold">{winnerCount}</span></div>
