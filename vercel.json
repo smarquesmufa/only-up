@@ -1,0 +1,7 @@
+{
+  "build": {
+    "env": {
+      "NEXT_PRIVATE_USE_WEBPACK": "1"
+    }
+  }
+}
