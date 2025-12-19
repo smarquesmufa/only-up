@@ -84,7 +84,7 @@ export function CreateRoundModal({ isOpen, onClose, onSuccess }: CreateRoundModa
         <div className="flex items-center justify-between px-5 py-4 border-b border-slate-800">
           <div>
             <h2 className="text-lg font-bold text-white">Create Round</h2>
-            <p className="text-xs text-amber-400 mt-0.5">Anyone can create rounds during testnet</p>
+            <p className="text-xs text-amber-400 mt-0.5">Anyone can create, only contract owner can settle</p>
           </div>
           <button onClick={onClose} className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-slate-800 transition-colors">
             <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
